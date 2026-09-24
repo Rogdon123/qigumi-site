@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>长沙奇谷米次元中心 | QIGUMI DIMENSION CENTER</title>
+<link rel="stylesheet" href="qigumi.css">
+</head>
+<body class="loading">
+
+<audio id="backgroundMusic" src="Somniomancer.mp3.mp3" loop preload="auto"></audio>
+<button class="music-toggle paused" id="musicToggle" type="button" aria-label="开始播放背景音乐">音乐：已暂停</button>
+
+<!-- ============================================================
+     LOADER
+     ============================================================ -->
+<div id="loader">
+  <div class="loader-grid"></div>
+  <div class="loader-corners">
+    <span></span><span></span><span></span><span></span>
+  </div>
+  <div class="loader-box">
+    <div class="loader-tag">System Initialization</div>
+    <div class="loader-title">Qigumi Dimension</div>
+    <div class="loader-sub">CHANGSHA · ANIME DISTRICT</div>
+
+    <div class="progress-track">
+      <div class="progress-fill" id="progressFill"></div>
+    </div>
+    <div class="progress-meta">
+      <span class="progress-num" id="progressNum">000</span>
+      <span id="progressLabel">LOADING ASSETS...</span>
+    </div>
+    <div class="loader-log" id="loaderLog">> connecting to dimension gateway...</div>
+  </div>
+</div>
+
+<!-- ============================================================
+     VERTICAL RAIL
+     ============================================================ -->
+<aside class="rail">
+  <div class="rail-logo">QIGUMI</div>
+  <div class="rail-dots">
+    <button data-target="hero" class="active" title="首屏"></button>
+    <button data-target="address" title="地址"></button>
+    <button data-target="history" title="历史"></button>
+    <button data-target="shops" title="店铺"></button>
+    <button data-target="events" title="活动"></button>
+  </div>
+  <div class="rail-meta">CHANGSHA · CN</div>
+</aside>
+
+<!-- ============================================================
+     TOP NAV
+     ============================================================ -->
+<header class="nav">
+  <div class="nav-brand">
+    Qigumi Dimension
+    <small>奇谷米次元中心</small>
+  </div>
+  <button class="nav-toggle" id="navToggle">MENU</button>
+  <nav>
+    <ul id="navList">
+      <li><a href="#hero">首页</a></li>
+      <li><a href="#address">地址</a></li>
+      <li><a href="#history">建设历史</a></li>
+      <li><a href="#shops">加盟店铺</a></li>
+      <li><a href="#events">历届活动</a></li>
+      <li><a href="#contact">联系</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+
+  <!-- ============================================================
+       HERO
+       ============================================================ -->
+  <section class="hero" id="hero">
+    <div>
+      <h1>Changsha<br><em>Qigumi</em> Dimension<br>Center</h1>
+      <div class="hero-sub">CHANGSHA · QIGUMI DIMENSION CENTER</div>
+      <p class="lead">
+        湖南目前最大的二次元街区，3500平方米的次元空间，汇集漫库、墟弥、易乐谷等头部品牌，
+        集谷子集合店、主题餐饮、互动体验、同好社交于一体的城市二次元地标。
+      </p>
+      <div class="stat-row">
+        <div class="stat"><div class="num">3500㎡</div><div class="lbl">街区面积</div></div>
+        <div class="stat"><div class="num">35000+</div><div class="lbl">峰值日客流</div></div>
+        <div class="stat"><div class="num">40+</div><div class="lbl">加盟店铺</div></div>
+        <div class="stat"><div class="num">2023</div><div class="lbl">开业年份</div></div>
+      </div>
+      <a href="#address" class="btn">探索次元中心</a>
+      <a href="#events" class="btn ghost">查看历届活动</a>
+    </div>
+    <div class="hero-visual" id="heroCarousel" aria-label="奇谷米次元中心图片轮播">
+      <div class="hero-slide-track" id="heroSlideTrack">
+        <div class="hero-slide">
+          <img src="https://www.icswb.com/upload/site_14_2025/2025/05/09/contribution/sub_107/106014/20250509/2eb3bb00048096c26a70eea59466e9c8compress1681d762c5101b.jpg" alt="掌上长沙报道中的奇谷米长沙次元街区现场" loading="eager">
+          <div class="hero-slide-caption"><strong>QIGUMI CHANGSHA</strong><span>01 / 长沙奇谷米次元街区</span></div>
+        </div>
+        <div class="hero-slide">
+          <img src="https://www.icswb.com/upload/site_14_2025/2025/05/09/contribution/sub_107/106014/20250509/fafdcb57d195f12e9685067b35dd6854compress1681d768ab14f5.jpg" alt="2023年奇谷米运营的谷江山成真三城巡演现场" loading="lazy">
+          <div class="hero-slide-caption"><strong>GU JIANGSHAN TOUR</strong><span>02 / 2023 谷江山成真三城巡演</span></div>
+        </div>
+        <div class="hero-slide">
+          <img src="https://q6.itc.cn/q_70/images03/20260127/fd327c26c4084dc38100e1a97e26221d.png" alt="奇谷米公开活动现场图片" loading="lazy">
+          <div class="hero-slide-caption"><strong>QIGUMI LIVE EVENT</strong><span>03 / 奇谷米活动现场</span></div>
+        </div>
+      </div>
+      <div class="hero-carousel-ui">
+        <span class="hero-carousel-count" id="heroCarouselCount">01 / 03</span>
+        <div class="hero-carousel-dots" aria-label="选择轮播图片">
+          <button class="active" type="button" aria-label="显示第1张图片"></button>
+          <button type="button" aria-label="显示第2张图片"></button>
+          <button type="button" aria-label="显示第3张图片"></button>
+        </div>
+      </div>
+      <div class="scan"></div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       ADDRESS
+       ============================================================ -->
+  <section class="section" id="address">
+    <div class="section-marker">01 / LOCATION</div>
+    <h2 class="section-title">详细地址</h2>
+    <div class="section-sub">Address & Transportation</div>
+
+    <div class="addr-wrap reveal">
+      <div class="addr-map">
+        <div class="pin"></div>
+        <div class="pin-label">QIGUMI DIMENSION CENTER</div>
+      </div>
+      <div class="addr-info">
+        <h3>抵达次元入口</h3>
+        <div class="addr-line">
+          <div class="k">主地址</div>
+          <div class="v">湖南省长沙市天心区黄兴南路步行街商业街西厢南栋</div>
+        </div>
+        <div class="addr-line">
+          <div class="k">二期扩展</div>
+          <div class="v">黄兴南路步行街中心广场东侧 · 2024年11月启用</div>
+        </div>
+        <div class="addr-line">
+          <div class="k">地铁</div>
+          <div class="v">长沙地铁1号线 · 黄兴广场站 2号出口，步行约2分钟</div>
+        </div>
+        <div class="addr-line">
+          <div class="k">公交</div>
+          <div class="v">2路 / 8路 / 108路 / 122路 / 202路 · 黄兴广场站下车</div>
+        </div>
+        <div class="addr-line">
+          <div class="k">营业时间</div>
+          <div class="v">每日 11:30 – 21:00（节假日延长至 22:00）</div>
+        </div>
+        <div class="addr-line">
+          <div class="k">自驾</div>
+          <div class="v">步行街地下停车场 · 平和堂停车场 · 悦方ID Mall停车场</div>
+        </div>
+        <div class="addr-actions">
+          <button class="btn" onclick="copyAddress()">复制地址</button>
+          <a href="https://map.baidu.com" target="_blank" class="btn ghost">打开地图导航</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="internal-nav reveal">
+      <div class="internal-nav-head">
+        <h3>内部导航</h3>
+        <p>点击地图上的店铺节点，查看对应店铺名称与业态</p>
+      </div>
+      <div class="floor-map" id="floorMap">
+        <svg viewBox="0 0 1000 560" role="img" aria-label="奇谷米次元中心2D俯视地图">
+          <defs>
+            <pattern id="mapGrid" width="40" height="40" patternUnits="userSpaceOnUse">
+              <path d="M 40 0 L 0 0 0 40" class="map-grid" fill="none"></path>
+            </pattern>
+          </defs>
+          <rect width="1000" height="560" fill="url(#mapGrid)"></rect>
+          <rect x="28" y="28" width="944" height="504" rx="0" class="map-boundary"></rect>
+          <rect x="55" y="55" width="250" height="175" class="map-zone"></rect>
+          <rect x="55" y="330" width="250" height="175" class="map-zone alt"></rect>
+          <rect x="695" y="55" width="250" height="175" class="map-zone alt"></rect>
+          <rect x="695" y="330" width="250" height="175" class="map-zone"></rect>
+          <rect x="305" y="244" width="390" height="72" class="map-corridor"></rect>
+          <rect x="305" y="55" width="390" height="55" class="map-corridor"></rect>
+          <rect x="305" y="450" width="390" height="55" class="map-corridor"></rect>
+          <rect x="425" y="110" width="150" height="134" class="map-stage"></rect>
+          <text x="500" y="181" class="map-label dark">中心广场舞台</text>
+          <text x="180" y="83" class="map-label dim">一期西厢南栋</text>
+          <text x="820" y="83" class="map-label dim">二期扩展区</text>
+          <text x="500" y="284" class="map-label">次元主通道</text>
+          <text x="500" y="480" class="map-label dim">次元天台入口</text>
+          <g id="mapPoints" aria-label="店铺位置"></g>
+        </svg>
+        <div class="map-tooltip" id="mapTooltip" role="status">
+          <strong id="mapTooltipName"></strong>
+          <span id="mapTooltipCat"></span>
+        </div>
+        <div class="map-legend">
+          <span><i></i>店铺节点</span>
+          <span><i class="stage"></i>公共区域</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       HISTORY
+       ============================================================ -->
+  <section class="section" id="history">
+    <div class="section-marker">02 / HISTORY</div>
+    <h2 class="section-title">建设历史</h2>
+    <div class="section-sub">Construction Timeline</div>
+
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="tab-full">完整历程</button>
+      <button class="tab-btn" data-tab="tab-phase">分期建设</button>
+      <button class="tab-btn" data-tab="tab-data">关键数据</button>
+    </div>
+
+    <div class="tab-panel active" id="tab-full">
+      <div class="timeline">
+        <div class="tl-item reveal">
+          <div class="tl-media"><img src="https://www.icswb.com/upload/site_14_2025/2025/05/09/contribution/sub_107/106014/20250509/2eb3bb00048096c26a70eea59466e9c8compress1681d762c5101b.jpg" alt="黄兴南路步行街的奇谷米次元街区" loading="lazy"><span class="tl-media-label">SITE / CHANGSHA</span></div>
+          <div class="tl-copy"><div class="tl-year">2022 <span>Q3</span></div><h4>项目立项 · 选址黄兴南路</h4><p>基于长沙黄兴南路步行街二次元消费密度调研，确定以黄兴广场为圆心打造“一公里吃谷圈”的构想，项目正式立项。</p></div>
+        </div>
+        <div class="tl-item reveal">
+          <div class="tl-media"><img src="https://www.icswb.com/upload/site_14_2025/2025/05/09/contribution/sub_107/106014/20250509/fafdcb57d195f12e9685067b35dd6854compress1681d768ab14f5.jpg" alt="奇谷米运营的谷江山三城巡演现场" loading="lazy"><span class="tl-media-label">LIVE / 2023 TOUR</span></div>
+          <div class="tl-copy"><div class="tl-year">2023 <span>Q1</span></div><h4>改造施工启动</h4><p>西厢南栋启动空间改造，规划谷子集合店、主题餐饮、互动体验、活动空间四大业态分区，同步设计“次元通道”沉浸式转换空间。</p></div>
+        </div>
+        <div class="tl-item reveal">
+          <div class="tl-media"><img src="https://q6.itc.cn/q_70/images03/20260127/fd327c26c4084dc38100e1a97e26221d.png" alt="奇谷米公开活动现场" loading="lazy"><span class="tl-media-label">OPEN / PHASE 01</span></div>
+          <div class="tl-copy"><div class="tl-year">2023 <span>Q4</span></div><h4>一期正式开业</h4><p>2023年12月，奇谷米次元中心一期正式开业，首批引入漫库、墟弥等头部品牌，开业首周客流突破10万人次。</p></div>
+        </div>
+        <div class="tl-item reveal">
+          <div class="tl-media"><img src="https://www.icswb.com/upload/site_14_2025/2025/05/09/contribution/sub_107/106014/20250509/fafdcb57d195f12e9685067b35dd6854compress1681d768ab14f5.jpg" alt="二次元市集现场" loading="lazy"><span class="tl-media-label">MARKET / COMMUNITY</span></div>
+          <div class="tl-copy"><div class="tl-year">2024 <span>Q2</span></div><h4>周末市集上线</h4><p>推出专属二手周边交易市集，通过奇谷米APP申请摊位，可交易手工谷美、棉花娃娃、稀有周边，成为长沙同好交易核心场所。</p></div>
+        </div>
+        <div class="tl-item reveal">
+          <div class="tl-media"><img src="https://www.icswb.com/upload/site_14_2025/2025/05/09/contribution/sub_107/106014/20250509/a0e05e9f93e7e5350c78c192897200adcompress1681d76a285b94.jpg" alt="二次元偶像舞台活动现场" loading="lazy"><span class="tl-media-label">STAGE / FAN EVENT</span></div>
+          <div class="tl-copy"><div class="tl-year">2024 <span>Q4</span></div><h4>二期扩展启用</h4><p>2024年11月，二期扩展区域正式启用，总面积扩展至3500平方米，加盟店铺数量突破40家，单日峰值客流达3.5万人次。</p></div>
+        </div>
+        <div class="tl-item reveal">
+          <div class="tl-media"><img src="https://www.icswb.com/upload/site_14_2025/2025/05/09/contribution/sub_107/106014/20250509/e9dc9757af294fa0122e21440c7e579fcompress1681d7652a4b64.jpg" alt="奇谷米次元街区的谷子展示墙" loading="lazy"><span class="tl-media-label">ARCHIVE / 2025</span></div>
+          <div class="tl-copy"><div class="tl-year">2025 <span>全年</span></div><h4>成为城市二次元地标</h4><p>全年举办生日应援、偶像舞台、随舞活动等各类二次元活动超过200场，成为长沙乃至湖南二次元文化的核心聚集地。</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-panel" id="tab-phase">
+      <div class="grid-3">
+        <div class="card reveal">
+          <div class="card-tag">Phase 01</div>
+          <h3>一期 · 西厢南栋</h3>
+          <p>2023年12月开业。核心业态为谷子集合店与主题餐饮，引入首批头部品牌，奠定街区基础形态。</p>
+        </div>
+        <div class="card reveal">
+          <div class="card-tag">Phase 02</div>
+          <h3>二期 · 中心广场东侧</h3>
+          <p>2024年11月启用。新增互动体验区、次元天台、活动舞台与二手市集区域，总面积扩展至3500㎡。</p>
+        </div>
+        <div class="card reveal">
+          <div class="card-tag">Phase 03</div>
+          <h3>三期 · 规划中</h3>
+          <p>规划扩展至步行街北段，打造"一公里吃谷圈"完整闭环，进一步引入国漫、游戏、独立IP主题空间。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-panel" id="tab-data">
+      <div class="grid-4">
+        <div class="card reveal">
+          <div class="card-tag">面积</div>
+          <h3>3500㎡</h3>
+          <p>一、二期合计营业面积</p>
+        </div>
+        <div class="card reveal">
+          <div class="card-tag">店铺</div>
+          <h3>40+</h3>
+          <p>加盟及自营店铺数量</p>
+        </div>
+        <div class="card reveal">
+          <div class="card-tag">客流</div>
+          <h3>35000+</h3>
+          <p>清明假期单日峰值客流</p>
+        </div>
+        <div class="card reveal">
+          <div class="card-tag">活动</div>
+          <h3>200+</h3>
+          <p>2025年全年活动场次</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SHOPS
+       ============================================================ -->
+  <section class="section" id="shops">
+    <div class="section-marker">03 / SHOPS</div>
+    <h2 class="section-title">加盟店铺</h2>
+    <div class="section-sub">Partner Stores & Brands</div>
+
+    <div class="shop-filter" id="shopFilter">
+      <button class="active" data-cat="all">全部 (40+)</button>
+      <button data-cat="goods">谷子集合</button>
+      <button data-cat="food">主题餐饮</button>
+      <button data-cat="play">互动体验</button>
+      <button data-cat="service">服务配套</button>
+    </div>
+
+    <div class="shop-grid" id="shopGrid"></div>
+  </section>
+
+  <!-- ============================================================
+       EVENTS
+       ============================================================ -->
+  <section class="section" id="events">
+    <div class="section-marker">04 / EVENTS</div>
+    <h2 class="section-title">历届二次元活动</h2>
+    <div class="section-sub">Past & Ongoing Events</div>
+
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="ev-all">全部活动</button>
+      <button class="tab-btn" data-tab="ev-live">进行中</button>
+      <button class="tab-btn" data-tab="ev-done">已结束</button>
+    </div>
+
+    <div class="tab-panel active" id="ev-all">
+      <div id="eventListAll"></div>
+    </div>
+    <div class="tab-panel" id="ev-live">
+      <div id="eventListLive"></div>
+    </div>
+    <div class="tab-panel" id="ev-done">
+      <div id="eventListDone"></div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer id="contact">
+  <div class="foot-grid">
+    <div>
+      <h4>Address</h4>
+      <p>湖南省长沙市天心区<br>黄兴南路步行街商业街<br>西厢南栋</p>
+    </div>
+    <div>
+      <h4>Opening Hours</h4>
+      <p>每日 11:30 – 21:00<br>节假日延长至 22:00</p>
+    </div>
+    <div>
+      <h4>Transit</h4>
+      <p>地铁1号线 黄兴广场站<br>2号出口 步行2分钟</p>
+    </div>
+    <div>
+      <h4>Follow Us</h4>
+      <a href="#">奇谷米APP</a>
+      <a href="#">官方微博</a>
+      <a href="#">小红书</a>
+      <a href="#">Bilibili</a>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>© 2026 QIGUMI DIMENSION CENTER</span>
+    <span>CHANGSHA · CHINA</span>
+  </div>
+</footer>
+
+<script>
+/* ============================================================
+   LOADER 0 → 100
+   ============================================================ */
+(function(){
+  const fill = document.getElementById('progressFill');
+  const num = document.getElementById('progressNum');
+  const label = document.getElementById('progressLabel');
+  const log = document.getElementById('loaderLog');
+  const loader = document.getElementById('loader');
+  const body = document.body;
+  const backgroundMusic = document.getElementById('backgroundMusic');
+  const musicToggle = document.getElementById('musicToggle');
+
+  const updateMusicToggle = () => {
+    const isPaused = backgroundMusic.paused;
+    musicToggle.textContent = isPaused ? '音乐：已暂停' : '音乐：播放中';
+    musicToggle.classList.toggle('paused', isPaused);
+    musicToggle.setAttribute('aria-label', isPaused ? '开始播放背景音乐' : '暂停背景音乐');
+  };
+
+  const startMusic = () => {
+    backgroundMusic.play().then(updateMusicToggle).catch(() => {
+      updateMusicToggle();
+      document.addEventListener('click', startMusic, { once: true });
+      document.addEventListener('keydown', startMusic, { once: true });
+    });
+  };
+
+  musicToggle.addEventListener('click', () => {
+    if (backgroundMusic.paused) {
+      backgroundMusic.play().then(updateMusicToggle).catch(updateMusicToggle);
+    } else {
+      backgroundMusic.pause();
+      updateMusicToggle();
+    }
+  });
+  backgroundMusic.addEventListener('pause', updateMusicToggle);
+  backgroundMusic.addEventListener('play', updateMusicToggle);
+
+  const logs = [
+    '> connecting to dimension gateway...',
+    '> loading qigumi assets...',
+    '> parsing anime district data...',
+    '> fetching partner store list...',
+    '> synchronizing event calendar...',
+    '> rendering dimension interface...',
+    '> initialization complete.'
+  ];
+
+  let progress = 0;
+  let logIdx = 0;
+
+  const timer = setInterval(() => {
+    // 非线性增长，模拟真实加载
+    let step = progress < 70 ? 2.2 : progress < 92 ? 1.1 : 0.6;
+    progress += step;
+    if (progress >= 100) progress = 100;
+
+    fill.style.width = progress + '%';
+    num.textContent = String(Math.floor(progress)).padStart(3, '0');
+
+    if (progress < 30) label.textContent = 'LOADING ASSETS...';
+    else if (progress < 60) label.textContent = 'PARSING DATA...';
+    else if (progress < 90) label.textContent = 'RENDERING...';
+    else label.textContent = 'COMPLETE';
+
+    const targetLog = Math.min(Math.floor(progress / 15), logs.length - 1);
+    if (targetLog !== logIdx) {
+      logIdx = targetLog;
+      log.textContent = logs[logIdx];
+    }
+
+    if (progress >= 100) {
+      clearInterval(timer);
+      setTimeout(() => {
+        loader.classList.add('done');
+        body.classList.remove('loading');
+        startMusic();
+        // 触发首屏 reveal
+        document.querySelectorAll('.reveal').forEach(el => {
+          const rect = el.getBoundingClientRect();
+          if (rect.top < window.innerHeight) el.classList.add('visible');
+        });
+      }, 500);
+    }
+  }, 22);
+})();
+
+/* ============================================================
+   SCROLL REVEAL
+   ============================================================ */
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+/* ============================================================
+   NAV TOGGLE (MOBILE)
+   ============================================================ */
+const navToggle = document.getElementById('navToggle');
+const navList = document.getElementById('navList');
+navToggle.addEventListener('click', () => navList.classList.toggle('open'));
+navList.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => navList.classList.remove('open'));
+});
+
+/* ============================================================
+   RAIL DOTS — SCROLL SPY
+   ============================================================ */
+const railDots = document.querySelectorAll('.rail-dots button');
+railDots.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const target = document.getElementById(btn.dataset.target);
+    if (target) target.scrollIntoView({ behavior: 'smooth' });
+  });
+});
+const sections = ['hero','address','history','shops','events'].map(id => document.getElementById(id));
+window.addEventListener('scroll', () => {
+  const scrollY = window.scrollY + 140;
+  let activeIdx = 0;
+  sections.forEach((sec, i) => {
+    if (sec && sec.offsetTop <= scrollY) activeIdx = i;
+  });
+  railDots.forEach((d, i) => d.classList.toggle('active', i === activeIdx));
+});
+
+/* ============================================================
+   HERO IMAGE CAROUSEL
+   ============================================================ */
+const heroCarousel = document.getElementById('heroCarousel');
+const heroSlideTrack = document.getElementById('heroSlideTrack');
+const heroCarouselCount = document.getElementById('heroCarouselCount');
+const heroCarouselDots = heroCarousel.querySelectorAll('.hero-carousel-dots button');
+let heroSlideIndex = 0;
+let heroCarouselTimer;
+
+function showHeroSlide(index) {
+  heroSlideIndex = (index + heroCarouselDots.length) % heroCarouselDots.length;
+  heroSlideTrack.style.transform = `translateX(-${heroSlideIndex * 100}%)`;
+  heroCarouselCount.textContent = `${String(heroSlideIndex + 1).padStart(2, '0')} / ${String(heroCarouselDots.length).padStart(2, '0')}`;
+  heroCarouselDots.forEach((dot, dotIndex) => {
+    dot.classList.toggle('active', dotIndex === heroSlideIndex);
+    dot.setAttribute('aria-current', dotIndex === heroSlideIndex ? 'true' : 'false');
+  });
+}
+
+function startHeroCarousel() {
+  clearInterval(heroCarouselTimer);
+  heroCarouselTimer = setInterval(() => showHeroSlide(heroSlideIndex + 1), 5200);
+}
+
+heroCarouselDots.forEach((dot, index) => {
+  dot.addEventListener('click', () => {
+    showHeroSlide(index);
+    startHeroCarousel();
+  });
+});
+heroCarousel.addEventListener('mouseenter', () => clearInterval(heroCarouselTimer));
+heroCarousel.addEventListener('mouseleave', startHeroCarousel);
+showHeroSlide(0);
+startHeroCarousel();
+
+/* ============================================================
+   TABS
+   ============================================================ */
+document.querySelectorAll('.tabs').forEach(tabGroup => {
+  const btns = tabGroup.querySelectorAll('.tab-btn');
+  btns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      btns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const parent = tabGroup.parentElement;
+      parent.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+      const target = parent.querySelector('#' + btn.dataset.tab);
+      if (target) target.classList.add('active');
+    });
+  });
+});
+
+/* ============================================================
+   SHOP DATA & RENDER
+   ============================================================ */
+const shops = [
+  { name: '漫库 MANKU', cat: 'goods', catName: '谷子集合' },
+  { name: '墟弥 XUMI', cat: 'goods', catName: '谷子集合' },
+  { name: '易乐谷 YILEGU', cat: 'goods', catName: '谷子集合' },
+  { name: '次元仓', cat: 'goods', catName: '谷子集合' },
+  { name: '谷子研究所', cat: 'goods', catName: '谷子集合' },
+  { name: 'ACG 集合站', cat: 'goods', catName: '谷子集合' },
+  { name: 'IP 周边专门店', cat: 'goods', catName: '谷子集合' },
+  { name: '国漫优选', cat: 'goods', catName: '谷子集合' },
+  { name: '扭蛋星球', cat: 'goods', catName: '谷子集合' },
+  { name: '手办工坊', cat: 'goods', catName: '谷子集合' },
+  { name: '次元茶屋', cat: 'food', catName: '主题餐饮' },
+  { name: '拉面一番', cat: 'food', catName: '主题餐饮' },
+  { name: '甜梦工房', cat: 'food', catName: '主题餐饮' },
+  { name: '动漫咖餐厅', cat: 'food', catName: '主题餐饮' },
+  { name: '猫耳咖啡', cat: 'food', catName: '主题餐饮' },
+  { name: '章鱼烧小町', cat: 'food', catName: '主题餐饮' },
+  { name: '元气补给站', cat: 'food', catName: '主题餐饮' },
+  { name: '娃娃机乐园', cat: 'play', catName: '互动体验' },
+  { name: '扭蛋体验馆', cat: 'play', catName: '互动体验' },
+  { name: '次元摄影棚', cat: 'play', catName: '互动体验' },
+  { name: 'VR 次元空间', cat: 'play', catName: '互动体验' },
+  { name: '卡牌对战区', cat: 'play', catName: '互动体验' },
+  { name: '次元天台', cat: 'play', catName: '互动体验' },
+  { name: '周边寄存处', cat: 'service', catName: '服务配套' },
+  { name: 'Cos 更衣室', cat: 'service', catName: '服务配套' },
+  { name: '快递代发点', cat: 'service', catName: '服务配套' },
+  { name: '同好休息区', cat: 'service', catName: '服务配套' },
+];
+
+const mapPointPositions = [
+  [92, 120], [172, 120], [252, 120], [92, 185], [172, 185], [252, 185],
+  [92, 395], [172, 395], [252, 395], [92, 460],
+  [732, 120], [812, 120], [892, 120], [732, 185], [812, 185], [892, 185], [812, 220],
+  [732, 395], [812, 395], [892, 395], [732, 460], [812, 460], [892, 460],
+  [345, 280], [405, 280], [595, 280], [655, 280], [365, 480], [635, 480]
+];
+const mapPoints = document.getElementById('mapPoints');
+const floorMap = document.getElementById('floorMap');
+const mapTooltip = document.getElementById('mapTooltip');
+const mapTooltipName = document.getElementById('mapTooltipName');
+const mapTooltipCat = document.getElementById('mapTooltipCat');
+
+function showMapShop(index, point) {
+  const shop = shops[index];
+  const mapRect = floorMap.getBoundingClientRect();
+  const pointRect = point.getBoundingClientRect();
+  mapTooltipName.textContent = shop.name;
+  mapTooltipCat.textContent = shop.catName;
+  mapTooltip.classList.add('visible');
+  const left = pointRect.left - mapRect.left + pointRect.width / 2 + 14;
+  const top = pointRect.top - mapRect.top - 12;
+  mapTooltip.style.left = `${Math.min(Math.max(12, left), mapRect.width - mapTooltip.offsetWidth - 12)}px`;
+  mapTooltip.style.top = `${Math.min(Math.max(12, top), mapRect.height - mapTooltip.offsetHeight - 48)}px`;
+  mapPoints.querySelectorAll('.map-point').forEach(item => item.classList.remove('active'));
+  point.classList.add('active');
+}
+
+shops.forEach((shop, index) => {
+  const [cx, cy] = mapPointPositions[index];
+  const point = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+  point.setAttribute('class', 'map-point');
+  point.setAttribute('cx', cx);
+  point.setAttribute('cy', cy);
+  point.setAttribute('r', '8');
+  point.setAttribute('tabindex', '0');
+  point.setAttribute('role', 'button');
+  point.setAttribute('aria-label', `查看店铺：${shop.name}`);
+  point.addEventListener('click', event => {
+    event.stopPropagation();
+    showMapShop(index, point);
+  });
+  point.addEventListener('keydown', event => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      showMapShop(index, point);
+    }
+  });
+  mapPoints.appendChild(point);
+});
+
+floorMap.addEventListener('click', event => {
+  if (!event.target.classList.contains('map-point')) {
+    mapTooltip.classList.remove('visible');
+    mapPoints.querySelectorAll('.map-point').forEach(point => point.classList.remove('active'));
+  }
+});
+
+const shopGrid = document.getElementById('shopGrid');
+function renderShops(cat) {
+  shopGrid.innerHTML = '';
+  const list = cat === 'all' ? shops : shops.filter(s => s.cat === cat);
+  list.forEach((s, i) => {
+    const div = document.createElement('div');
+    div.className = 'shop-item reveal from-up';
+    div.innerHTML = `
+      <span class="s-idx">${String(i + 1).padStart(2, '0')}</span>
+      <span class="s-name">${s.name}</span>
+      <span class="s-cat">${s.catName}</span>
+    `;
+    shopGrid.appendChild(div);
+  });
+  // 重新绑定 reveal
+  shopGrid.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+}
+renderShops('all');
+
+document.getElementById('shopFilter').addEventListener('click', (e) => {
+  if (e.target.tagName !== 'BUTTON') return;
+  document.querySelectorAll('#shopFilter button').forEach(b => b.classList.remove('active'));
+  e.target.classList.add('active');
+  renderShops(e.target.dataset.cat);
+});
+
+/* ============================================================
+   EVENT DATA & RENDER
+   ============================================================ */
+const events = [
+  {
+    idx: 'EV-001',
+    name: '奇谷米开业祭',
+    status: 'done',
+    statusText: '已结束',
+    date: '2023.12',
+    location: '一期主广场',
+    tags: ['开业', '限定周边', '舞台演出'],
+    desc: '奇谷米次元中心一期开业纪念活动，首批品牌联合推出限定周边，连续三天举办舞台演出与随机舞蹈，开业首周客流突破10万人次。'
+  },
+  {
+    idx: 'EV-002',
+    name: '周末谷子市集 · 首期',
+    status: 'done',
+    statusText: '已结束',
+    date: '2024.04',
+    location: '次元天台',
+    tags: ['二手交易', '手工谷美', '棉花娃娃'],
+    desc: '首期周末二手周边交易市集，通过奇谷米APP申请摊位，吸引超过80位摊主参与，成为长沙同好交易核心场所。'
+  },
+  {
+    idx: 'EV-003',
+    name: '生日应援企划 · 春季场',
+    status: 'done',
+    statusText: '已结束',
+    date: '2024.05',
+    location: '活动舞台',
+    tags: ['生日应援', '大屏投放', '同好聚会'],
+    desc: '为多位人气角色举办联合生日应援，场地免费提供给同好使用，包含大屏投放、应援物交换、集体合影等环节。'
+  },
+  {
+    idx: 'EV-004',
+    name: '偶像舞台 · 夏季公演',
+    status: 'done',
+    statusText: '已结束',
+    date: '2024.07',
+    location: '中心广场舞台',
+    tags: ['偶像舞台', '随机舞蹈', 'Live'],
+    desc: '夏季偶像主题舞台公演，吸引多个同好团体参与演出，同步举办随机舞蹈环节，现场观众超过3000人次。'
+  },
+  {
+    idx: 'EV-005',
+    name: '二期扩展启用纪念',
+    status: 'done',
+    statusText: '已结束',
+    date: '2024.11',
+    location: '二期扩展区',
+    tags: ['二期启用', '新店开业', '限定福袋'],
+    desc: '二期扩展区域正式启用，新增互动体验区与次元天台，联合新入驻品牌推出限定福袋，单日峰值客流达3.5万人次。'
+  },
+  {
+    idx: 'EV-006',
+    name: '国漫主题周',
+    status: 'done',
+    statusText: '已结束',
+    date: '2025.03',
+    location: '一期主广场',
+    tags: ['国漫', 'IP 联名', '签售会'],
+    desc: '聚焦国产动漫IP的主题周活动，邀请多位国漫创作者举办签售会，联合入驻店铺推出国漫限定周边。'
+  },
+  {
+    idx: 'EV-007',
+    name: '随舞狂欢夜',
+    status: 'live',
+    statusText: '进行中',
+    date: '每周六 19:00',
+    location: '中心广场',
+    tags: ['随机舞蹈', '同好社交', '免费参与'],
+    desc: '每周六晚固定举办的随机舞蹈活动，面向所有同好免费开放，现场播放热门ACG曲目，随时可加入。'
+  },
+  {
+    idx: 'EV-008',
+    name: '周末谷子市集 · 常设',
+    status: 'live',
+    statusText: '进行中',
+    date: '每周日 11:30',
+    location: '次元天台',
+    tags: ['二手交易', '摊位申请', '手工周边'],
+    desc: '常设周末二手周边交易市集，通过奇谷米APP申请摊位，可交易手工谷美、棉花娃娃、稀有周边等。'
+  },
+  {
+    idx: 'EV-009',
+    name: '生日应援企划 · 常设',
+    status: 'live',
+    statusText: '进行中',
+    date: '全年 · 按角色生日',
+    location: '活动舞台',
+    tags: ['生日应援', '免费场地', '同好组织'],
+    desc: '全年常设的生日应援企划，场地前期免费提供给同好使用，支持大屏投放、应援物展示与集体活动。'
+  },
+];
+
+function renderEvents(list, containerId) {
+  const container = document.getElementById(containerId);
+  container.innerHTML = '';
+  list.forEach(ev => {
+    const acc = document.createElement('div');
+    acc.className = 'event-acc reveal';
+    acc.innerHTML = `
+      <div class="event-head">
+        <div class="e-left">
+          <span class="e-idx">${ev.idx}</span>
+          <h3>${ev.name}</h3>
+        </div>
+        <div class="e-left">
+          <span class="e-status ${ev.status === 'live' ? 'live' : 'done'}">${ev.statusText}</span>
+          <span class="e-toggle">+</span>
+        </div>
+      </div>
+      <div class="event-body">
+        <div class="event-body-inner">
+          <div class="eb-meta">
+            <div class="row"><span class="k">时间</span><span>${ev.date}</span></div>
+            <div class="row"><span class="k">地点</span><span>${ev.location}</span></div>
+            <div class="row"><span class="k">状态</span><span>${ev.statusText}</span></div>
+            <div class="tag-row">${ev.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>
+          </div>
+          <div class="eb-desc">
+            <p>${ev.desc}</p>
+          </div>
+        </div>
+      </div>
+    `;
+    container.appendChild(acc);
+    // 手风琴交互
+    acc.querySelector('.event-head').addEventListener('click', () => {
+      acc.classList.toggle('open');
+    });
+  });
+  container.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+}
+
+renderEvents(events, 'eventListAll');
+renderEvents(events.filter(e => e.status === 'live'), 'eventListLive');
+renderEvents(events.filter(e => e.status === 'done'), 'eventListDone');
+
+/* ============================================================
+   COPY ADDRESS
+   ============================================================ */
+function copyAddress() {
+  const text = '湖南省长沙市天心区黄兴南路步行街商业街西厢南栋 奇谷米次元中心';
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(text).then(() => {
+      alert('地址已复制到剪贴板');
+    }).catch(() => {
+      fallbackCopy(text);
+    });
+  } else {
+    fallbackCopy(text);
+  }
+}
+function fallbackCopy(text) {
+  const ta = document.createElement('textarea');
+  ta.value = text;
+  document.body.appendChild(ta);
+  ta.select();
+  try { document.execCommand('copy'); alert('地址已复制到剪贴板'); }
+  catch(e) { alert('复制失败，请手动复制：' + text); }
+  document.body.removeChild(ta);
+}
+</script>
+
+</body>
+</html>
